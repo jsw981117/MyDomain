@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 MoveDirection { get { return moveDirection; } }
 
     protected AnimationHandler animHandler;
-
+    protected StatHandler statHandler;
     
 
     public void Init(GameManager gameManager)
@@ -31,11 +31,12 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animHandler = GetComponent<AnimationHandler>();
+        statHandler = GetComponent<StatHandler>();
     }
 
     protected virtual void Move(Vector2 direction)
     {
-        direction = direction * 3;
+        direction = direction * statHandler.Speed;
         rb.velocity = direction;
         animHandler.MoveAnim(direction);
     }
