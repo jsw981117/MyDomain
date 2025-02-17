@@ -1138,6 +1138,8 @@ MonoBehaviour:
   target: {fileID: 1376690685}
   smoothSpeed: 0.75
   followThreshold: 1
+  minBounds: {x: -3, y: -1}
+  maxBounds: {x: 3, y: 1}
 --- !u!1 &911843916
 GameObject:
   m_ObjectHideFlags: 0
