@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     protected AnimationHandler animHandler;
     protected StatHandler statHandler;
 
-    private InteractionHandler nearbyInteractable;
+    private IInteractable nearbyInteractable;
 
     public void Init(GameManager gameManager)
     {
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Interactable"))
         {
-            nearbyInteractable = other.GetComponent<InteractionHandler>();
+            nearbyInteractable = other.GetComponent<IInteractable>();
         }
     }
 
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Interactable"))
         {
-            if (nearbyInteractable != null && nearbyInteractable.gameObject == other.gameObject)
+            if (nearbyInteractable != null && nearbyInteractable == other.GetComponent<IInteractable>())
             {
                 nearbyInteractable = null;
             }
