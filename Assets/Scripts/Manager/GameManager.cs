@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
+        Debug.Log("Ω√¿€");
     }
 
     // Update is called once per frame
