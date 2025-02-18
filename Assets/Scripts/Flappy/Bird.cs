@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
-    FlappyManager flappyManager;
-    Rigidbody2D _rigidbody;
+    FlappyManager flappyManager = null;
+    Rigidbody2D _rigidbody = null;
 
     public float flapForce = 6f;
     public float forwardSpeed = 3f;
@@ -27,21 +27,20 @@ public class Bird : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
         if (isDead)
-        {
+        { 
             if (deathCooldown <= 0f)
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
-                    // Àç½ÃÀÛ
-                    flappyManager.StartGame();
+                    flappyManager.RestartGame();
                 }
-                else
-                {
-                    deathCooldown -= Time.deltaTime;
-                }
+            }
+            else
+            {
+                deathCooldown -= Time.deltaTime;
             }
         }
         else
@@ -77,7 +76,7 @@ public class Bird : MonoBehaviour
 
         isDead = true;
         deathCooldown = 1f;
-
+        flappyManager.GameOver();
         // animator.SetInteger("IsDie", 1);
     }
 }

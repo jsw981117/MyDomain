@@ -45,7 +45,7 @@ public class Obstacle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Bird bird = collision.GetComponent<Bird>();
-        if (bird != null)
+        if (bird != null || bird.isDead == false)
             flappyManager.AddScore(1);
     }
 }

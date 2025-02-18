@@ -8,7 +8,7 @@ public class ManagerScene : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        StartCoroutine(LoadMainSceneAfterDelay(1f));
+        StartCoroutine(LoadMainSceneAfterDelay(0.2f));
     }
 
 
