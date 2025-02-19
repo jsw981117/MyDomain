@@ -12,7 +12,6 @@ public class ButtonHandler : MonoBehaviour
     public void Awake()
     {
         scoresUI = FindAnyObjectByType<ScoresUI>();
-
     }
     public void OnClickStart() // FlappyMain -> FlappyGame
     {
@@ -21,8 +20,8 @@ public class ButtonHandler : MonoBehaviour
 
     public void OnClickExit() // FlappyMain -> Main
     {
+        ScoreManager.Instance.isBack = true;
         SceneManager.LoadScene("MainScene");
-        ScoresUI.ScoreReturn();
     }
 
     public void OnClickExitFlappy()

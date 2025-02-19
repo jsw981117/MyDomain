@@ -23529,6 +23529,7 @@ GameObject:
   - component: {fileID: 2057170086}
   - component: {fileID: 2057170085}
   - component: {fileID: 2057170084}
+  - component: {fileID: 2057170087}
   m_Layer: 5
   m_Name: ConfirmBtn
   m_TagString: Untagged
@@ -23599,7 +23600,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2057170085}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2057170087}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: OnClickExitScoreReturn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2057170085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23638,6 +23651,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057170082}
   m_CullTransparentMesh: 1
+--- !u!114 &2057170087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057170082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1200d9bf4db5284390522d612c8d237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2077034808
 GameObject:
   m_ObjectHideFlags: 0

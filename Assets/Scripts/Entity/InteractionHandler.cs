@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class InteractionHandler : MonoBehaviour
 {
-    private bool IsNearby = false;
+    // private bool IsNearby = false;
     private List<IInteractable> interactables = new List<IInteractable>();
 
     private void Update()

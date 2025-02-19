@@ -25,7 +25,15 @@ public class ScoresUI : MonoBehaviour
     {
         scoresPopup.SetActive(false);
         leaderBoard.SetActive(false);
-        flappyReturn.SetActive(false);
+        if (ScoreManager.Instance.isBack)
+        {
+            flappyReturn.SetActive(true);
+            ScoreManager.Instance.isBack = false;
+        }
+        else
+        {
+            flappyReturn.SetActive(false);
+        }
     }
 
 

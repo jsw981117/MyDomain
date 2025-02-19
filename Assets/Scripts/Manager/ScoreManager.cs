@@ -8,6 +8,8 @@ public class ScoreManager : MonoBehaviour
     public const int LEADERBOARD_SIZE = 5; // 리더보드에 저장할 최대 점수 개수
     public static ScoreManager Instance { get { return instance; } }
 
+    public bool isBack = false;
+
     private Dictionary<string, int> highScores = new Dictionary<string, int>();
 
     private void Awake()
