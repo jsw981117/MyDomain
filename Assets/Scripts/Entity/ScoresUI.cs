@@ -8,6 +8,7 @@ public class ScoresUI : MonoBehaviour
     public TextMeshProUGUI flappyHighScore;
     public GameObject scoresPopup;
     public GameObject scoresBtn;
+
     public GameObject leaderBoard;
     public GameObject leaderBoardBtn;
 
@@ -17,10 +18,14 @@ public class ScoresUI : MonoBehaviour
     public TextMeshProUGUI flappyLBS4;
     public TextMeshProUGUI flappyLBS5;
 
+    public TextMeshProUGUI flappyScoreReturn;
+    public GameObject flappyReturn;
+
     void Start()
     {
         scoresPopup.SetActive(false);
         leaderBoard.SetActive(false);
+        flappyReturn.SetActive(false);
     }
 
 
@@ -59,5 +64,16 @@ public class ScoresUI : MonoBehaviour
     {
         leaderBoard.SetActive(false);
         leaderBoardBtn.SetActive(true);
+    }
+
+    public void ScoreReturn()
+    {
+        flappyScoreReturn.text = ScoreManager.Instance.GetHighScore("Flappy").ToString();
+        flappyReturn.SetActive(true);
+    }
+
+    public void ExitScoreReturn()
+    {
+        flappyReturn.SetActive(false);
     }
 }

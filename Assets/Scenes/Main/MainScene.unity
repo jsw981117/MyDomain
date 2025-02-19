@@ -22938,6 +22938,8 @@ MonoBehaviour:
   flappyLBS3: {fileID: 643700679}
   flappyLBS4: {fileID: 1244389203}
   flappyLBS5: {fileID: 590216967}
+  flappyScoreReturn: {fileID: 904188591}
+  flappyReturn: {fileID: 353488503}
 --- !u!1 &1523456317
 GameObject:
   m_ObjectHideFlags: 0

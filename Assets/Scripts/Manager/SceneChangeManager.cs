@@ -5,14 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class SceneChangeManager : MonoBehaviour
 {
+    private static SceneChangeManager instance;
+
+    private string previousSceneName = "";
     private void Awake()
     {
-        SceneManager.activeSceneChanged += OnSceneChanged;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // 씬이 변경돼도 유지
+            SceneManager.activeSceneChanged += OnSceneChanged;
+        }
+        else
+        {
+            Destroy(gameObject); // 중복 생성 방지
+        }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         SceneManager.activeSceneChanged -= OnSceneChanged;
+    }
+
+    public string GetPreviousSceneName()
+    {
+        return previousSceneName;
     }
 
     private void OnSceneChanged(Scene oldScene, Scene newScene)
@@ -25,12 +42,11 @@ public class SceneChangeManager : MonoBehaviour
             int highScore = ScoreManager.Instance.GetHighScore("Flappy");
             Debug.Log($"Flappy 최고 점수: {highScore}");
 
-            // UI에 최고 점수 업데이트하는 코드 (MainScene에서 UI가 있다면)
-            //MainSceneUI ui = FindObjectOfType<MainSceneUI>();
-            //if (ui != null)
-            //{
-            //    ui.UpdateHighScore(highScore);
-            //}
+            ScoresUI ui = FindObjectOfType<ScoresUI>();
+            if (ui != null)
+            {
+                ui.ScoreReturn();
+            }
         }
     }
 }
