@@ -38,4 +38,9 @@ public class ButtonHandler : MonoBehaviour
     {
         ScoresUI.ExitScoresPopup();
     }
+
+    public void OnClickBoard()
+    {
+
+    }
 }

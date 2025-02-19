@@ -33,7 +33,7 @@ public class Bird : MonoBehaviour
         { 
             if (deathCooldown <= 0f)
             {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     flappyManager.RestartGame();
                 }
@@ -45,7 +45,7 @@ public class Bird : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 isFlap = true;
             }
