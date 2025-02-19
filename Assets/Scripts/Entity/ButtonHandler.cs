@@ -41,6 +41,11 @@ public class ButtonHandler : MonoBehaviour
 
     public void OnClickBoard()
     {
+        ScoresUI.LeaderBoard();
+    }
 
+    public void OnClickExitLeaderBoard()
+    {
+        ScoresUI.ExitLeaderBoard();
     }
 }

@@ -27,10 +27,8 @@ public class FlappyManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
-        if (ScoreManager.Instance.GetHighScore("Flappy") < currentScore)
-        {
-            ScoreManager.Instance.SaveHighScore("Flappy", currentScore);
-        }
+
+        ScoreManager.Instance.SaveHighScore("Flappy", currentScore);
 
         flappyUI.SetRestart();
     }
