@@ -21,12 +21,14 @@ public class ScoresUI : MonoBehaviour
     public TextMeshProUGUI flappyScoreReturn;
     public GameObject flappyReturn;
 
+
     void Start()
     {
         scoresPopup.SetActive(false);
         leaderBoard.SetActive(false);
         if (ScoreManager.Instance.isBack)
         {
+            ScoreManager.Instance.GetHighScore("Flappy").ToString();
             flappyReturn.SetActive(true);
             ScoreManager.Instance.isBack = false;
         }
@@ -76,7 +78,7 @@ public class ScoresUI : MonoBehaviour
 
     public void ScoreReturn()
     {
-        flappyScoreReturn.text = ScoreManager.Instance.GetHighScore("Flappy").ToString();
+
         flappyReturn.SetActive(true);
     }
 

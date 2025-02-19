@@ -9,15 +9,11 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance { get { return instance; } }
 
     public bool isBack = false;
-
-    private Dictionary<string, int> highScores = new Dictionary<string, int>();
-
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -62,6 +58,7 @@ public class ScoreManager : MonoBehaviour
         List<int> scores = GetLeaderboard(miniGameName);
         if (scores.Count > 0)
             return scores[0]; // 리더보드는 정렬되어 있으므로 첫 번째 값이 최고 점수!
-        return 0; // 저장된 점수가 없으면 0 반환
+        else
+            return 0; // 저장된 점수가 없으면 0 반환
     }
 }
