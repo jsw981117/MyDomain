@@ -6,17 +6,15 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private GameManager gameManager;
-
     protected Rigidbody2D rb;
-
     [SerializeField] private SpriteRenderer chRenderer;
-
     protected Vector2 moveDirection = Vector2.zero;
     public Vector2 MoveDirection { get { return moveDirection; } }
 
     protected AnimationHandler animHandler;
     protected StatHandler statHandler;
-    
+
+    private IInteractable nearbyInteractable;
 
     public void Init(GameManager gameManager)
     {
@@ -53,6 +51,33 @@ public class PlayerController : MonoBehaviour
         if (moveDirection.x > 0)
         {
             chRenderer.flipX = false;
+        }
+    }
+
+    void OnInteract()
+    {
+        if (nearbyInteractable != null)
+        {
+            nearbyInteractable.Interact();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            nearbyInteractable = other.GetComponent<IInteractable>();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            if (nearbyInteractable != null && nearbyInteractable == other.GetComponent<IInteractable>())
+            {
+                nearbyInteractable = null;
+            }
         }
     }
 }
