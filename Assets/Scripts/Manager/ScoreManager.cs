@@ -24,15 +24,18 @@ public class ScoreManager : MonoBehaviour
 
     public void SaveHighScore(string miniGameName, int score)
     {
-        if (!highScores.ContainsKey(miniGameName) || highScores[miniGameName] < score)
+        int bestScore = GetHighScore(miniGameName);
+
+        if (score > bestScore) // 기존 최고 점수보다 크면 갱신
         {
-            highScores[miniGameName] = score;
-            Debug.Log($"최고 점수 갱신! {miniGameName}: {score}");
+            PlayerPrefs.SetInt(miniGameName + "_HighScore", score);
+            PlayerPrefs.Save(); // 변경 사항 저장
+            Debug.Log($"새로운 최고 점수 저장! {miniGameName}: {score}");
         }
     }
 
     public int GetHighScore(string miniGameName)
     {
-        return highScores.ContainsKey(miniGameName) ? highScores[miniGameName] : 0;
+        return PlayerPrefs.GetInt(miniGameName + "_HighScore", 0);
     }
 }
