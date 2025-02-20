@@ -21,7 +21,9 @@ public class FollowCamera : MonoBehaviour
         offsetY = transform.position.y - target.position.y;
     }
 
-
+    /// <summary>
+    /// 카메라가 부드럽게 움직이는 연출
+    /// </summary>
     private void LateUpdate()
     {
         if (target == null) return;

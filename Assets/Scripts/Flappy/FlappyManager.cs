@@ -24,6 +24,9 @@ public class FlappyManager : MonoBehaviour
         flappyUI.UpdateScore(0);
     }
 
+    /// <summary>
+    /// 게임 종료 시 현재 점수를 스코어매니저에다가 전달합니다. 전달된 점수는 리더보드랑 비교해서 높은 점수들만 남게 됩니다.
+    /// </summary>
     public void GameOver()
     {
         Debug.Log("Game Over");

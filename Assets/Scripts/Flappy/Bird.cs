@@ -27,6 +27,9 @@ public class Bird : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 죽었으면 게임 재시작 / 살아있으면 플랩
+    /// </summary>
     void Update()
     {
         if (isDead)
@@ -51,6 +54,7 @@ public class Bird : MonoBehaviour
             }
         }
     }
+
     private void FixedUpdate()
     {
         if (isDead) return;
@@ -69,6 +73,11 @@ public class Bird : MonoBehaviour
         float angle = Mathf.Clamp((_rigidbody.velocity.y * 10f), -90, 90);
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
+
+    /// <summary>
+    /// 장애물이나 천장 / 바닥에 닿으면 사망
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (godMode) return;
@@ -77,6 +86,5 @@ public class Bird : MonoBehaviour
         isDead = true;
         deathCooldown = 1f;
         flappyManager.GameOver();
-        // animator.SetInteger("IsDie", 1);
     }
 }

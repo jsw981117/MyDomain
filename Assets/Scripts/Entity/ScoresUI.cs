@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// 쓰고보니까 MainScene의 모든 UI를 전부 담당하게 되어서 ScoreUI보다는 MainUI가 더 적절한 이름일 것 같습니다
+/// </summary>
 public class ScoresUI : MonoBehaviour
 {
     public TextMeshProUGUI flappyHighScore;

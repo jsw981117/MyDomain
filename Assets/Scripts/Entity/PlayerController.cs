@@ -32,6 +32,10 @@ public class PlayerController : MonoBehaviour
         statHandler = GetComponent<StatHandler>();
     }
 
+    /// <summary>
+    /// 이동 시 StatHandler의 Speed 변수만큼 이동
+    /// </summary>
+    /// <param name="direction"></param>
     protected virtual void Move(Vector2 direction)
     {
         direction = direction * statHandler.Speed;
@@ -39,6 +43,10 @@ public class PlayerController : MonoBehaviour
         animHandler.MoveAnim(direction);
     }
 
+    /// <summary>
+    /// wasd혹은 방향키로 이동
+    /// </summary>
+    /// <param name="inputValue"></param>
     void OnMove(InputValue inputValue)
     {
         moveDirection = inputValue.Get<Vector2>();
@@ -54,6 +62,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// f키를 눌러 상호작용
+    /// </summary>
     void OnInteract()
     {
         if (nearbyInteractable != null)

@@ -21,6 +21,11 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 미니게임에서 싱글톤인 스코어 매니저에다가 리더보드 점수를 저장해줍니다 + PlayerPrefs에 저장하기 때문에 프로젝트를 껐다 켜도 유지됨.
+    /// </summary>
+    /// <param name="miniGameName"></param>
+    /// <param name="score"></param>
     public void SaveHighScore(string miniGameName, int score)
     {
         List<int> scores = GetLeaderboard(miniGameName);
@@ -40,6 +45,11 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    /// <summary>
+    /// 리더보드에 등록된 점수를 모두 가져옵니다.
+    /// </summary>
+    /// <param name="miniGameName"></param>
+    /// <returns></returns>
     public List<int> GetLeaderboard(string miniGameName)
     {
         List<int> scores = new List<int>();
@@ -53,6 +63,11 @@ public class ScoreManager : MonoBehaviour
         return scores;
     }
 
+    /// <summary>
+    /// 최고 점수만 가져오기
+    /// </summary>
+    /// <param name="miniGameName"></param>
+    /// <returns></returns>
     public int GetHighScore(string miniGameName)
     {
         List<int> scores = GetLeaderboard(miniGameName);

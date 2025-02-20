@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationHandler : MonoBehaviour
 {
-    private static readonly int IsMove = Animator.StringToHash("IsMove");
+    private static readonly int IsMove = Animator.StringToHash("IsMove"); // 성능 최적화
 
     protected Animator anim;
 

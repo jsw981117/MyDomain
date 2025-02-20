@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ManagerScene : MonoBehaviour
 {
+    /// <summary>
+    /// 매니저를 BootScene에서 한번에 생성해서 다음 씬들에 넘겨줍니다.
+    /// </summary>
     void Start()
     {
         DontDestroyOnLoad(gameObject);

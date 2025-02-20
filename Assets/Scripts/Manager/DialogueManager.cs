@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
         dialoguePanel.SetActive(false); // 시작 시 대화창 숨기기
     }
+
     void Update()
     {
         // 마우스 클릭 or 화면 터치 시 다음 대사 진행
@@ -64,6 +65,11 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
+    /// <summary>
+    /// 텍스트를 한 글자씩 출력해주는 메서드(연출)
+    /// </summary>
+    /// <param name="sentence"></param>
+    /// <returns></returns>
     IEnumerator TypeSentence(string sentence)
     {
         isTyping = true;
@@ -71,7 +77,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.05f); // 한 글자씩 출력
+            yield return new WaitForSeconds(0.05f);
         }
         isTyping = false;
     }
