@@ -28,7 +28,7 @@ public class ScoresUI : MonoBehaviour
         leaderBoard.SetActive(false);
         if (ScoreManager.Instance.isBack)
         {
-            ScoreManager.Instance.GetHighScore("Flappy").ToString();
+            flappyScoreReturn.text = ScoreManager.Instance.GetHighScore("Flappy").ToString();
             flappyReturn.SetActive(true);
             ScoreManager.Instance.isBack = false;
         }
